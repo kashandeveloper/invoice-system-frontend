@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invoice System • Clients</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="./assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-soft">
+    <div class="container">
+      <a class="navbar-brand brand fw-bold" href="index.html">Invoice<span class="accent">Pro</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" data-page="index.html" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="clients.html" href="clients.html">Clients</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="invoices.html" href="invoices.html">Invoices</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="reports.html" href="reports.html">Reports</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="container py-4 py-md-5">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <h1 class="h3 mb-1">Clients</h1>
+        <div class="text-muted-2">Manage client records</div>
+      </div>
+      <div>
+        <button class="btn btn-primary hover-raise" data-bs-toggle="modal" data-bs-target="#clientModal">Add Client</button>
+      </div>
+    </div>
+    <div class="card p-3 p-md-4" data-aos="fade-up">
+      <div id="alertArea"></div>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle" id="clientsTable">
+          <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Address</th><th class="text-end">Actions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <div class="modal fade" id="clientModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-soft border-soft">
+        <div class="modal-header border-soft">
+          <h5 class="modal-title">Client</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="clientForm">
+            <input type="hidden" id="clientId">
+            <div class="form-floating mb-3">
+              <input class="form-control" id="name" placeholder="Name" required>
+              <label for="name">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" placeholder="Email" required>
+              <label for="email">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input class="form-control" id="phone" placeholder="Phone">
+              <label for="phone">Phone</label>
+            </div>
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="address" placeholder="Address" style="height:90px"></textarea>
+              <label for="address">Address</label>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary" id="saveBtn">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/clients.js"></script>
+</body>
+</html>

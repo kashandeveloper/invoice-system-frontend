@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invoice System • Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="./assets/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-soft">
+    <div class="container">
+      <a class="navbar-brand brand fw-bold" href="index.html">Invoice<span class="accent">Pro</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" data-page="index.html" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="clients.html" href="clients.html">Clients</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="invoices.html" href="invoices.html">Invoices</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="reports.html" href="reports.html">Reports</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="container py-4 py-md-5">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div>
+        <h1 class="h3 mb-1">Dashboard</h1>
+        <div class="text-muted-2">Overview</div>
+      </div>
+      <div class="d-none d-md-flex gap-2">
+        <a href="invoices.html" class="btn btn-primary btn-icon hover-raise"><span class="bi bi-plus-lg"></span>Create Invoice</a>
+        <a href="clients.html" class="btn btn-outline-light btn-icon hover-raise border-soft">Add Client</a>
+      </div>
+    </div>
+    <div class="row g-3 g-md-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card stat-card p-4">
+          <div class="glow"></div>
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <div class="text-muted-2">Total Clients</div>
+              <div class="display-6 fw-bold" id="statClients">0</div>
+            </div>
+            <div class="chip"><span class="text-success">•</span> Active</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="card stat-card p-4">
+          <div class="glow"></div>
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <div class="text-muted-2">Total Invoices</div>
+              <div class="display-6 fw-bold" id="statInvoices">0</div>
+            </div>
+            <div class="chip">All time</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card stat-card p-4">
+          <div class="glow"></div>
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <div class="text-muted-2">Revenue (This Month)</div>
+              <div class="display-6 fw-bold">$<span id="statRevenue">0.00</span></div>
+            </div>
+            <div class="chip">USD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-4"><hr class="divider"></div>
+    <div class="row g-3 g-md-4">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="card p-3 p-md-4">
+          <h5 class="card-title mb-3">Recent Invoices</h5>
+          <div class="table-responsive">
+            <table class="table table-striped table-fit align-middle mb-0" id="recentTable">
+              <thead><tr><th>#</th><th>Client</th><th class="text-end">Total</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="60">
+        <div class="card p-3 p-md-4">
+          <h5 class="card-title mb-3">Monthly Revenue</h5>
+          <div id="reportArea" class="scroll-area">
+            <ul class="list-group list-group-flush list-hover" id="monthList"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="container pb-4">
+    <div class="footer small">© <span id="year"></span> InvoicePro</div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/dashboard.js"></script>
+</body>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</html>
