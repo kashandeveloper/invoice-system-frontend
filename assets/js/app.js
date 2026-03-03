@@ -1,4 +1,4 @@
-const API_BASE = "https://kashan.42web.io/api";
+// const API_BASE = "https://kashan.42web.io/api";
 document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("page-enter");
 requestAnimationFrame(()=>{document.body.classList.add("page-enter-active")});
 if(window.AOS)AOS.init({duration:700,once:true,offset:60});
