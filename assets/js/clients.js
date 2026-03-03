@@ -4,8 +4,7 @@ let alertArea;
 let saveBtn;
 let tbody;
 let editId = null;
-// assets/js/config.js
-// const API_BASE = "https://kashan.42web.io/api";
+
 import API_BASE from "./config.js";
 
 document.addEventListener("DOMContentLoaded", () => {
