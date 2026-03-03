@@ -8,6 +8,8 @@ let saveBtn;
 let alertArea;
 let listTbody;
 
+const API_BASE = "https://kashan.42web.io/api";
+
 document.addEventListener("DOMContentLoaded", () => {
   itemsEl = document.getElementById("items");
   clientSel = document.getElementById("clientSelect");
@@ -89,10 +91,9 @@ async function save() {
       notify(alertArea, "Select a client and add at least one item.", "danger");
       return;
     }
-    const res = await jsonFetch("../api/invoices/create.php", {
-      method: "POST",
-      body: JSON.stringify({ client_id, tax_percent, items })
-    });
+    const res = await jsonFetch(`${API_BASE}/invoices/create.php`,
+    { method: "POST", body: JSON.stringify({ client_id, tax_percent, items }) });
+
     notify(alertArea, "Invoice saved", "success");
     itemsEl.innerHTML = "";
     addRow();
@@ -116,7 +117,7 @@ async function save() {
 async function loadList() {
   listTbody.innerHTML = "";
   try {
-    const data = await jsonFetch("../api/invoices/list.php");
+    const data = await jsonFetch(`${API_BASE}/invoices/list.php`);
     data.forEach((r) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
