@@ -5,7 +5,7 @@ let saveBtn;
 let tbody;
 let editId = null;
 
-import API_BASE from "./config.js";
+// import API_BASE from "./config.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   modal = new bootstrap.Modal(document.getElementById("clientModal"));
