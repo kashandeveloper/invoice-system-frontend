@@ -1,4 +1,4 @@
-// const API_BASE = "https://kashan.42web.io/api";
+const API_BASE = "https://kashan.42web.io/api";
 
 
 document.addEventListener("DOMContentLoaded",async function(){try{const data = await jsonFetch(`${API_BASE}/stats/overview.php`);
