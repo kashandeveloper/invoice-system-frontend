@@ -8,7 +8,7 @@ let saveBtn;
 let alertArea;
 let listTbody;
 
-const API_BASE = "https://kashan.42web.io/api";
+// const API_BASE = "https://kashan.42web.io/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   itemsEl = document.getElementById("items");
