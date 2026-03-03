@@ -1,4 +1,6 @@
 // const API_BASE = "https://kashan.42web.io/api";
+import API_BASE from "./config.js";
+
 document.addEventListener("DOMContentLoaded",async function(){try{const data = await jsonFetch(`${API_BASE}/stats/overview.php`);
 animateCount(document.getElementById("statClients"),Number(data.clients||0),700);
 animateCount(document.getElementById("statInvoices"),Number(data.invoices||0),700);
