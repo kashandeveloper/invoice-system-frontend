@@ -4,6 +4,8 @@ let alertArea;
 let saveBtn;
 let tbody;
 let editId = null;
+// assets/js/config.js
+const API_BASE = "https://kashan.42web.io/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   modal = new bootstrap.Modal(document.getElementById("clientModal"));
