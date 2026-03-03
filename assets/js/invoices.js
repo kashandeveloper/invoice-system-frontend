@@ -9,7 +9,7 @@ let alertArea;
 let listTbody;
 
 // const API_BASE = "https://kashan.42web.io/api";
-import API_BASE from "./config.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   itemsEl = document.getElementById("items");
