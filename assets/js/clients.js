@@ -27,9 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     try {
       if (editId) {
-        await jsonFetch("../api/clients/update.php", { method: "PUT", body: JSON.stringify({ id: Number(editId), ...payload }) });
+        await jsonFetch(`${API_BASE}/clients/update.php`, { method: "PUT", body: JSON.stringify({ id: Number(editId), ...payload }) });
+
       } else {
-        await jsonFetch("../api/clients/create.php", { method: "POST", body: JSON.stringify(payload) });
+        await jsonFetch(`${API_BASE}/clients/create.php`, { method: "POST", body: JSON.stringify(payload) });
       }
       modal.hide();
       editId = null;
@@ -78,7 +79,7 @@ async function loadClients() {
 
 async function onEdit(id) {
   try {
-    const list = await jsonFetch("../api/clients/list.php");
+    const data = await jsonFetch(`${API_BASE}/clients/list.php`);
     const c = list.find((x) => String(x.id) === String(id));
     if (!c) return;
     editId = id;
@@ -95,8 +96,7 @@ async function onEdit(id) {
 async function onDelete(id) {
   if (!confirm("Delete this client?")) return;
   try {
-    await jsonFetch(`../api/clients/delete.php?id=${encodeURIComponent(id)}`);
-    loadClients();
+   await jsonFetch(`${API_BASE}/clients/delete.php?id=${encodeURIComponent(id)}`);    loadClients();
   } catch (e) {
     notify(alertArea, e.message || "Delete failed", "danger");
   }
